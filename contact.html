@@ -1,53 +1,131 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contact | My Portfolio</title>
 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
+
 </head>
+
 
 <body>
 
+    <!-- Header -->
     <header>
+
         <h1>Thabisile Mtshweni</h1>
+
         <div id="clock"></div>
+
     </header>
 
+
+    <!-- Navigation -->
     <nav>
+
         <ul>
+
             <li><a href="index.html">Home</a></li>
+
             <li><a href="about.html">About</a></li>
+
             <li><a href="family.html">Family</a></li>
+
             <li><a href="hobbies.html">Hobbies</a></li>
+
             <li><a href="gallery.html">Gallery</a></li>
+
             <li><a href="contact.html">Contact</a></li>
+
         </ul>
+
     </nav>
 
+
+    <!-- Main Content -->
     <div class="container">
 
         <div class="card">
 
             <h2>Contact Me</h2>
 
-            <p>If you would like to get in touch, please complete the form below.</p>
+            <p>
+                If you would like to get in touch, please complete
+                the form below.
+            </p>
 
-            <form name="contact" onsubmit="return validateForm()">
 
-                <label for="name">Name</label><br>
-                <input type="text" id="name" name="name"><br><br>
+            <!-- Contact Form -->
 
-                <label for="email">Email</label><br>
-                <input type="email" id="email" name="email"><br><br>
+            <form
+                action="https://formspree.io/f/mvkoaoon"
+                method="POST"
+                name="contact"
+                onsubmit="return validateForm()"
+            >
 
-                <label for="message">Message</label><br>
-                <textarea id="message" name="message" rows="5" cols="40"></textarea><br><br>
+                <label for="name">
+                    Name
+                </label>
 
-                <input type="submit" value="Send">
+                <br>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <br><br>
+
+
+                <label for="email">
+                    Email
+                </label>
+
+                <br>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <br><br>
+
+
+                <label for="message">
+                    Message
+                </label>
+
+                <br>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+
+                <br><br>
+
+
+                <input
+                    type="submit"
+                    value="Send Message"
+                >
 
             </form>
 
@@ -55,9 +133,17 @@
 
     </div>
 
+
+    <!-- Footer -->
+
     <footer>
-        <p>&copy; 2026 Thabisile Mtshweni</p>
+
+        <p>
+            &copy; 2026 Thabisile Mtshweni
+        </p>
+
     </footer>
+
 
 </body>
 

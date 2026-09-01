@@ -397,3 +397,101 @@ footer p {
         padding: 8px;
     }
 }
+/* ==============================
+   FAMILY PICTURE
+   ============================== */
+
+.family-picture {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.family-picture img {
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 4px solid #d88c9a;
+    box-shadow: 0 6px 18px rgba(183, 110, 121, 0.2);
+}
+/* ==============================
+   HOBBIES SLIDESHOW
+   ============================== */
+
+.slideshow {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.slideshow img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 18px;
+    border: 4px solid #d88c9a;
+
+    box-shadow: 0 6px 18px rgba(183, 110, 121, 0.25);
+
+    margin: 0 auto;
+
+    transition: opacity 0.5s ease;
+}
+
+.slideshow h3 {
+    margin-top: 15px;
+    color: #8f5360;
+}
+
+#hobbyDescription {
+    margin-top: 8px;
+}
+
+.slide-buttons {
+    margin-top: 15px;
+}
+
+.slide-buttons button {
+    margin: 5px;
+}
+
+#slideNumber {
+    margin-top: 10px;
+    color: #8f5360;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   DARK MODE
+   ============================== */
+
+.dark-mode .slideshow h3 {
+    color: #f1aeb9;
+}
+
+.dark-mode #slideNumber {
+    color: #f1aeb9;
+}
+
+.dark-mode .slideshow img {
+    border-color: #b76e79;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 768px) {
+
+    .slideshow img {
+        height: 300px;
+    }
+
+}

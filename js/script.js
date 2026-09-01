@@ -16,10 +16,8 @@ window.addEventListener("load", function () {
 
 function darkMode() {
 
-    // Turn Dark Mode on or off
     document.body.classList.toggle("dark-mode");
 
-    // Save the user's choice
     if (document.body.classList.contains("dark-mode")) {
 
         localStorage.setItem("darkMode", "enabled");
@@ -39,7 +37,6 @@ function darkMode() {
 
 window.addEventListener("DOMContentLoaded", function () {
 
-    // Check if the user previously selected Dark Mode
     if (localStorage.getItem("darkMode") === "enabled") {
 
         document.body.classList.add("dark-mode");
@@ -57,7 +54,6 @@ function showInfo() {
 
     let info = document.getElementById("extra");
 
-    // Make sure the element exists
     if (info) {
 
         if (info.style.display === "none") {
@@ -83,7 +79,6 @@ function clock() {
 
     let clockElement = document.getElementById("clock");
 
-    // Check that the clock exists on the page
     if (clockElement) {
 
         let date = new Date();
@@ -94,10 +89,8 @@ function clock() {
 
 }
 
-// Run the clock every second
 setInterval(clock, 1000);
 
-// Display the clock immediately
 clock();
 
 
@@ -109,30 +102,33 @@ function validateForm() {
 
     let form = document.forms["contact"];
 
-    // Check that the form exists
     if (!form) {
 
         return false;
 
     }
 
+
     let name = form["name"].value.trim();
+
     let email = form["email"].value.trim();
+
     let message = form["message"].value.trim();
 
 
-    // Check if fields are empty
     if (name === "" || email === "" || message === "") {
-
-        alert("Please fill in all fields.");
+alert(
+    "Thank you, " + name +
+    "! Your message has been sent successfully."
+);
 
         return false;
 
     }
 
 
-    // Check if the email is valid
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
     if (!emailPattern.test(email)) {
 
@@ -143,15 +139,181 @@ function validateForm() {
     }
 
 
-    // Successful submission message
-    alert("Thank you, " + name + "! Your message has been sent successfully.");
+    alert(
+        "Thank you, " + name +
+        "! Your message has been sent successfully."
+    );
 
-    /*
-       Returning false prevents the page from refreshing.
-       This is useful because we are not sending the form
-       to a real server.
-    */
 
     return false;
 
 }
+
+
+/* =========================================
+   HOBBIES SLIDESHOW
+   ========================================= */
+
+/* Six hobby pictures */
+
+let hobbyImages = [
+
+    "images/Heckathon.jpeg",
+
+    "images/TeckomPresent.jpeg",
+
+    "images/Events.jpeg",
+
+    "images/NYDA EVENt.jpeg",
+
+    "images/Networking Events.jpeg",
+
+    "images/HeckathonPresentation.jpeg"
+
+];
+
+
+/* Six hobby titles */
+
+let hobbyTitles = [
+
+    "Coding",
+
+    "Attending Hackathons",
+
+    "Attending Tech Events",
+
+    "Attending Workshops",
+
+    "Networking",
+
+    "Technology Presentations"
+
+];
+
+
+/* Six hobby descriptions */
+
+let hobbyDescriptions = [
+
+    "I enjoy coding and creating useful applications.",
+
+    "I enjoy attending hackathon events to learn about new technologies in the industry.",
+
+    "I enjoy attending tech events for networking with seniors and tech mentors.",
+
+    "I love attending workshops because they help me gain new skills and knowledge.",
+
+    "I enjoy networking events because they allow me to meet new people and connect with professionals.",
+
+    "I enjoy technology presentations because they help me learn and overcome my fear of public speaking."
+
+];
+
+
+/* Start with picture 1 */
+
+let currentHobby = 0;
+
+
+/* =========================================
+   SHOW CURRENT HOBBY
+   ========================================= */
+
+function showHobby() {
+
+    let image = document.getElementById("hobbyImage");
+
+    let title = document.getElementById("hobbyTitle");
+
+    let description = document.getElementById("hobbyDescription");
+
+    let number = document.getElementById("slideNumber");
+
+
+    if (image) {
+
+        image.src = hobbyImages[currentHobby];
+
+        image.alt = hobbyTitles[currentHobby];
+
+    }
+
+
+    if (title) {
+
+        title.innerHTML = hobbyTitles[currentHobby];
+
+    }
+
+
+    if (description) {
+
+        description.innerHTML = hobbyDescriptions[currentHobby];
+
+    }
+
+
+    if (number) {
+
+        number.innerHTML =
+            "Picture " + (currentHobby + 1) + " of 6";
+
+    }
+
+}
+
+
+/* =========================================
+   NEXT PICTURE
+   ========================================= */
+
+function nextHobby() {
+
+    currentHobby++;
+
+    if (currentHobby >= hobbyImages.length) {
+
+        currentHobby = 0;
+
+    }
+
+    showHobby();
+
+}
+
+
+/* =========================================
+   PREVIOUS PICTURE
+   ========================================= */
+
+function previousHobby() {
+
+    currentHobby--;
+
+    if (currentHobby < 0) {
+
+        currentHobby = hobbyImages.length - 1;
+
+    }
+
+    showHobby();
+
+}
+
+
+/* =========================================
+   AUTOMATIC SLIDESHOW
+   ========================================= */
+
+/* Change picture every 4 seconds */
+
+setInterval(function () {
+
+    if (document.getElementById("hobbyImage")) {
+
+        nextHobby();
+
+    }
+
+}, 4000);
